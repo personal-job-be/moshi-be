@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "d_transactions",
+  "info": {
+    "name": "d-transaction",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "h_transaction": {
+      "via": "d_transactions",
+      "model": "h-transaction"
+    },
+    "therapist": {
+      "model": "therapist",
+      "via": "d_transactions"
+    },
+    "type": {
+      "model": "type",
+      "via": "d_transactions"
+    },
+    "promo": {
+      "model": "promo",
+      "via": "d_transactions"
+    },
+    "users_permissions_user": {
+      "via": "d_transactions",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "therapists",
+  "info": {
+    "name": "therapist",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "comission": {
+      "type": "integer"
+    },
+    "isvalid": {
+      "type": "boolean",
+      "default": true
+    },
+    "absensi": {
+      "type": "integer"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "users_permissions_user": {
+      "via": "therapists",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "d_transactions": {
+      "via": "therapist",
+      "collection": "d-transaction"
+    },
+    "absences": {
+      "via": "therapist",
+      "collection": "absence"
+    }
+  }
+}

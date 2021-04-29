@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promos",
+  "info": {
+    "name": "promo",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "boolean",
+      "default": true
+    },
+    "value": {
+      "type": "integer"
+    },
+    "isvalid": {
+      "type": "boolean",
+      "default": true
+    },
+    "users_permissions_user": {
+      "via": "promos",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "d_transactions": {
+      "via": "promo",
+      "collection": "d-transaction"
+    }
+  }
+}

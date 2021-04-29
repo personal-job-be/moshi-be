@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "h_transactions",
+  "info": {
+    "name": "h-transaction",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "note": {
+      "type": "string"
+    },
+    "member": {
+      "model": "member",
+      "via": "h_transactions"
+    },
+    "d_transactions": {
+      "collection": "d-transaction",
+      "via": "h_transaction"
+    },
+    "name": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "via": "h_transactions",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "name": "member",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "hp": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "boolean"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "h_transactions": {
+      "via": "member",
+      "collection": "h-transaction"
+    },
+    "kode": {
+      "type": "string"
+    },
+    "initial": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "via": "members",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

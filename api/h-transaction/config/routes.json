@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/h-transactions",
+      "handler": "h-transaction.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/h-transactions/count",
+      "handler": "h-transaction.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/h-transactions/:id",
+      "handler": "h-transaction.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/h-transactions/salary/:id/:start/:end",
+      "handler": "h-transaction.salary",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/h-transactions",
+      "handler": "h-transaction.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/h-transactions/:id",
+      "handler": "h-transaction.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/h-transactions/:id",
+      "handler": "h-transaction.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

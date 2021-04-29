@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "name": "type",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "isvalid": {
+      "type": "boolean"
+    },
+    "base_price": {
+      "type": "integer"
+    },
+    "sale_price": {
+      "type": "integer"
+    },
+    "users_permissions_user": {
+      "via": "types",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "d_transactions": {
+      "via": "type",
+      "collection": "d-transaction"
+    }
+  }
+}

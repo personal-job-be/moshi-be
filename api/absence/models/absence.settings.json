@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "absences",
+  "info": {
+    "name": "absence",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "attendance": {
+      "type": "json"
+    },
+    "therapist": {
+      "model": "therapist",
+      "via": "absences"
+    },
+    "users_permissions_user": {
+      "via": "absences",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "month": {
+      "type": "integer"
+    },
+    "year": {
+      "type": "integer"
+    }
+  }
+}

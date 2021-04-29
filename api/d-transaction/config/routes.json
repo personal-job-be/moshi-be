@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/d-transactions",
+      "handler": "d-transaction.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/d-transactions/count",
+      "handler": "d-transaction.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/d-transactions/:id",
+      "handler": "d-transaction.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/d-transactions/detail/:id",
+      "handler": "d-transaction.findDetail",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/d-transactions",
+      "handler": "d-transaction.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/d-transactions/:id",
+      "handler": "d-transaction.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/d-transactions/:id",
+      "handler": "d-transaction.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

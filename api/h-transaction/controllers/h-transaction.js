@@ -17,7 +17,6 @@ module.exports = {
     const comission = therapist.comission
 
     const htransaction = await strapi.services["h-transaction"].find({ date_gte:start, date_lte:end });
-    console.log(htransaction)
     const result = []
     for (let index = 0; index < htransaction.length; index++) {
       const idHtrans = htransaction[index].id;
@@ -27,20 +26,20 @@ module.exports = {
         h_transaction : idHtrans, 
         therapist:id 
       });
-      singleTrans.detail = dtransaction
-      result.push(singleTrans)
+      if(dtransaction.length > 0)
+      {
+        singleTrans.detail = dtransaction
+        result.push(singleTrans)
+      }
     }
 
     for (let index = 0; index < result.length; index++) {
       const transaction = result[index];
-      if(transaction.detail.length > 0) 
-      {
-        const omset = transaction.detail.map(detail => detail.type.base_price).reduce((prev, curr) => prev + curr)
-        const commission =transaction.detail.map(detail => detail.type.base_price * comission / 100
-        ).reduce((prev, curr) => prev + curr)
-        result[index] = {...result[index],...{commission}}
-        result[index] = {...result[index],...{omset}}
-      }
+      const omset = transaction.detail.map(detail => detail.type.base_price).reduce((prev, curr) => prev + curr)
+      const commission =transaction.detail.map(detail => detail.type.base_price * comission / 100
+      ).reduce((prev, curr) => prev + curr)
+      result[index] = {...result[index],...{commission}}
+      result[index] = {...result[index],...{omset}}
     }
 
     // entity = await strapi.services["bank-statement"].create(ctx.request.body);

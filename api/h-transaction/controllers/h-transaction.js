@@ -16,7 +16,7 @@ module.exports = {
 
     const comission = therapist.comission
 
-    const htransaction = await strapi.services["h-transaction"].find({ date_gte:start, date_lte:end });
+    const htransaction = await strapi.services["h-transaction"].find({ date_gte:start, date_lte:end, _limit: -1 });
     const result = []
     for (let index = 0; index < htransaction.length; index++) {
       const idHtrans = htransaction[index].id;
@@ -24,7 +24,8 @@ module.exports = {
       singleTrans.htrans = htransaction[index]
       const dtransaction = await strapi.services["d-transaction"].find({ 
         h_transaction : idHtrans, 
-        therapist:id 
+        therapist:id,
+        _limit: -1 
       });
       if(dtransaction.length > 0)
       {
@@ -33,8 +34,10 @@ module.exports = {
       }
     }
 
+
     for (let index = 0; index < result.length; index++) {
       const transaction = result[index];
+      console.log(transaction);
       const omset = transaction.detail.map(detail => detail.type.base_price).reduce((prev, curr) => prev + curr)
       const commission =transaction.detail.map(detail => detail.type.base_price * comission / 100
       ).reduce((prev, curr) => prev + curr)

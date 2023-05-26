@@ -16,7 +16,7 @@ module.exports = {
 
     const comission = therapist.comission
 
-    const htransaction = await strapi.services["h-transaction"].find({ date_gte:start, date_lte:end, _limit: -1 });
+    const htransaction = await strapi.services["h-transaction"].find({ date_gte:start, date_lte:end, _limit: -1, _sort: 'date' });
     const result = []
     for (let index = 0; index < htransaction.length; index++) {
       const idHtrans = htransaction[index].id;
